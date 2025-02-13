@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annual Leave Optimizer</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-to-b from-gray-100 to-white min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-gray-200 text-gray-800 p-4 shadow-lg">
+    <h1 id="headerTitle" class="text-3xl font-bold text-center">Annual Leave Optimizer</h1>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto p-4">
+    <!-- Advertisement Placeholder (Top) -->
+    <div id="adTop" class="ad-banner mb-4 bg-gray-100 text-gray-700 text-center py-2 rounded">
+      Advertisement
+    </div>
+    
+    <!-- Input Form -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 space-y-4">
+      <!-- Country Selector -->
+      <div>
+        <label id="labelSelectCountry" for="countrySelect" class="block text-gray-700 font-bold mb-1">
+          Select Country:
+        </label>
+        <select id="countrySelect" class="w-full p-2 border rounded">
+          <option value="">Loading countries...</option>
+        </select>
+      </div>
+      
+      <!-- Number of Leave Days -->
+      <div>
+        <label id="labelLeaveDays" for="leaveDaysInput" class="block text-gray-700 font-bold mb-1">
+          Number of Leave Days Available:
+        </label>
+        <input type="number" id="leaveDaysInput" class="w-full p-2 border rounded" min="0" value="5">
+      </div>
+      
+      <!-- Leave Year Start -->
+      <div>
+        <label id="labelLeaveYearStart" for="leaveYearStart" class="block text-gray-700 font-bold mb-1">
+          Leave Year Start (YYYY-MM-DD):
+        </label>
+        <!-- You can set a default date via JavaScript if PHP is not available -->
+        <input type="date" id="leaveYearStart" class="w-full p-2 border rounded" value="">
+      </div>
+      
+      <!-- Off Days Checkboxes -->
+      <div>
+        <p id="labelOffDays" class="text-gray-700 font-bold mb-1">Select Your Regular Off Days:</p>
+        <div class="flex flex-wrap gap-4">
+          <!-- JS's getDay(): Sunday=0, Monday=1, … Saturday=6 -->
+          <label class="inline-flex items-center">
+            <input type="checkbox" value="1" class="offDayCheckbox" checked>
+            <span class="ml-2">Monday</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" value="2" class="offDayCheckbox" checked>
+            <span class="ml-2">Tuesday</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" value="3" class="offDayCheckbox">
+            <span class="ml-2">Wednesday</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" value="4" class="offDayCheckbox">
+            <span class="ml-2">Thursday</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" value="5" class="offDayCheckbox">
+            <span class="ml-2">Friday</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" value="6" class="offDayCheckbox" checked>
+            <span class="ml-2">Saturday</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" value="0" class="offDayCheckbox" checked>
+            <span class="ml-2">Sunday</span>
+          </label>
+        </div>
+      </div>
+      
+      <button id="optimizeBtn" class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Optimize my Leave !
+      </button>
+    </div>
+    
+    <!-- Summary -->
+    <div id="summary" class="mb-4 text-center text-lg font-bold"></div>
+    
+    <!-- Month Navigation (Arrows & Title) -->
+    <div id="monthNav" class="flex justify-between items-center mb-4 hidden">
+      <button id="prevMonth" class="text-2xl focus:outline-none">&larr;</button>
+      <div id="monthTitle" class="text-xl font-bold"></div>
+      <button id="nextMonth" class="text-2xl focus:outline-none">&rarr;</button>
+    </div>
+    
+    <!-- Calendar Display -->
+    <div id="calendar" class="mb-8"></div>
+    
+    <!-- Advertisement Placeholder (Bottom) -->
+    <div id="adBottom" class="ad-banner mt-4 bg-gray-100 text-gray-700 text-center py-2 rounded">
+      Advertisement
+    </div>
+    
+    <div id="error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mt-4"></div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-200 text-gray-800 p-4 text-center">
+    <p id="footerText" class="text-sm">&copy; 2025 Annual Leave Optimizer. All rights reserved.</p>
+  </footer>
+  
+  <!-- Tooltip Element -->
+  <div id="tooltip"></div>
+  
+  <!-- External JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
