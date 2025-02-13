@@ -1,0 +1,12 @@
+/* Tooltip styling */
+#tooltip {
+  position: absolute;
+  z-index: 50;
+  background-color: rgba(55, 65, 81, 0.9); /* Tailwind gray-700 */
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  pointer-events: none;
+  display: none;
+}
